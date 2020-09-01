@@ -1,5 +1,6 @@
 import pygame
 import random
+import platform
 
 pygame.font.init()
 
@@ -216,7 +217,11 @@ def main(win):
 	next_piece = get_shape()
 	clock = pygame.time.Clock()
 	fall_time = 0
-	fall_speed = 0.27
+	fall_speed = 0.3
+	if (int(platform.python_version_tuple()[0]) > 2):
+		fall_speed = 0.8
+
+	print(fall_speed)
 
 	while run:
 		grid = create_grid(locked_positions)
